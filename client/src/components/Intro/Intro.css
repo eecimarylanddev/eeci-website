@@ -17,26 +17,16 @@
 }
 
 @media (min-width: 768px) {
-<<<<<<<< HEAD:client/src/components/Intro/Intro.css
   .intro-title {
     font-size: 2.5rem;
   }
 }
 
 .intro-subtitle {
-========
-  .about-title {
-    font-size: 2rem;
-  }
-}
-
-.about-content {
->>>>>>>> d1b0d6f (Add About and Beliefs components):client/src/components/About/About.css
   font-size: 1rem;
   color: #4b5563;
   margin-bottom: 2rem;
 }
-<<<<<<<< HEAD:client/src/components/Intro/Intro.css
 
 .intro-button {
   border: 1px solid #111827;
@@ -53,5 +43,3 @@
   background-color: #111827;
   color: #ffffff;
 }
-========
->>>>>>>> d1b0d6f (Add About and Beliefs components):client/src/components/About/About.css
