@@ -1,15 +1,20 @@
-.intro {
-  background-color: #ffffff;
+.beliefs {
+  background-color: #f9f9f9;
   text-align: center;
   padding: 4rem 1.5rem;
 }
 
-.intro-container {
+.beliefs-container {
   max-width: 800px;
   margin: 0 auto;
 }
 
-.intro-title {
+.beliefs-eyebrow {
+  font-size: 1rem;
+  color: #79818d;
+}
+
+.beliefs-title {
   font-size: 2rem;
   font-weight: 700;
   color: #111827;
@@ -17,28 +22,18 @@
 }
 
 @media (min-width: 768px) {
-<<<<<<<< HEAD:client/src/components/Intro/Intro.css
-  .intro-title {
-    font-size: 2.5rem;
-  }
-}
-
-.intro-subtitle {
-========
-  .about-title {
+  .beliefs-title {
     font-size: 2rem;
   }
 }
 
-.about-content {
->>>>>>>> d1b0d6f (Add About and Beliefs components):client/src/components/About/About.css
+.beliefs-content {
   font-size: 1rem;
   color: #4b5563;
   margin-bottom: 2rem;
 }
-<<<<<<<< HEAD:client/src/components/Intro/Intro.css
 
-.intro-button {
+.beliefs-button {
   border: 1px solid #111827;
   color: #111827;
   background-color: transparent;
@@ -49,9 +44,7 @@
   font-weight: 500;
 }
 
-.intro-button:hover {
+.beliefs-button:hover {
   background-color: #111827;
   color: #ffffff;
 }
-========
->>>>>>>> d1b0d6f (Add About and Beliefs components):client/src/components/About/About.css

@@ -5,7 +5,7 @@ export function Intro() {
     <section className="intro">
       <div className="intro-container">
         <h1 className="intro-title">
-          Ethiopian Evangelical Church International
+          Emmanuel Evangelical Church International
         </h1>
         <p className="intro-subtitle">
           You are so special and God LOVES you so much!
