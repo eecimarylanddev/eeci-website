@@ -13,8 +13,22 @@
   justify-content: center;
 }
 
+a.social-facebook {
+  text-decoration: none;
+}
+
+a.social-youtube {
+  text-decoration: none;
+}
+
+a.social-tiktok {
+  text-decoration: none;
+}
+
 .icon {
-  display: inline-block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 30px;
   height: 30px;
   border-radius: 50%;
@@ -25,6 +39,27 @@
   font-size: 24px;
   position: relative;
   transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.facebook::before {
+  content: "\f39e";
+  font-family: "Font Awesome 6 Brands";
+  font-style: normal;
+  font-size: medium;
+}
+
+.youtube::before {
+  content: "\f167";
+  font-family: "Font Awesome 6 Brands";
+  font-style: normal;
+  font-size: medium;
+}
+
+.tiktok::before {
+  content: "\e07b";
+  font-family: "Font Awesome 6 Brands";
+  font-style: normal;
+  font-size: large;
 }
 
 .footer-links {

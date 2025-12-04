@@ -10,23 +10,17 @@ export function Footer() {
         <a class="social-facebook" 
            href="https://www.facebook.com/people/Ethio-Emmanuel/pfbid07LJ4r13DdRn5MSNFCr7YjPLW95xyZD95ss5AR9s8WjUJX7hpk18rQFDV8CHMukhLl/" 
            target="_blank">
-          <span class="icon facebook">
-            ::before
-          </span>
+          <i class="icon facebook"></i>
         </a>
         <a class="social-youtube" 
            href="https://www.youtube.com/channel/UCljj-pkGW1Adn2ZOrib3RkA" 
            target="_blank">
-          <span class="icon youtube">
-            ::before
-          </span>
+          <i class="icon youtube"></i>
         </a>
         <a class="social-tiktok" 
            href="https://www.tiktok.com/@eecimaryland" 
            target="_blank">
-          <span class="icon tiktok">
-            ::before
-          </span>
+          <i class="icon tiktok"></i>
         </a>
       </div>
       <div className="footer-links">
