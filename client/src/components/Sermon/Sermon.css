@@ -1,0 +1,42 @@
+.sermon {
+  background-color: #f9f9f9;
+  padding: 4rem 1.5rem;
+  text-align: center;
+}
+
+.sermon-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.sermon-subtitle {
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  color: #6b7280; /* gray-500 */
+  margin-bottom: 0.5rem;
+}
+
+.sermon-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 2rem;
+}
+
+.sermon-video {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  height: 0;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.sermon-video iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
