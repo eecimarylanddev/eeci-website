@@ -38,7 +38,7 @@ export function Footer() {
         </a>
         <a
           className="page-link"
-          href="https://giving.myamplify.io//app/giving/setota"
+          href="https://giving.myamplify.io/app/giving/setota"
           target="_blank"
         >
           Give

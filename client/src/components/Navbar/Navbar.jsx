@@ -17,7 +17,7 @@ export function Navbar() {
           </li>
           <li>
             <a
-              href="https://giving.myamplify.io//app/giving/setota"
+              href="https://giving.myamplify.io/app/giving/setota"
               target="_blank"
             >
               <button className="nav-button">Give</button>
