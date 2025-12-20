@@ -7,20 +7,26 @@ export function Footer() {
         <p>Connect with us.</p>
       </div>
       <div className="footer-socials">
-        <a class="social-facebook" 
-           href="https://www.facebook.com/people/Ethio-Emmanuel/pfbid07LJ4r13DdRn5MSNFCr7YjPLW95xyZD95ss5AR9s8WjUJX7hpk18rQFDV8CHMukhLl/" 
-           target="_blank">
-          <i class="icon facebook"></i>
+        <a
+          className="social-facebook"
+          href="https://www.facebook.com/people/Ethio-Emmanuel/pfbid07LJ4r13DdRn5MSNFCr7YjPLW95xyZD95ss5AR9s8WjUJX7hpk18rQFDV8CHMukhLl/"
+          target="_blank"
+        >
+          <i className="icon facebook"></i>
         </a>
-        <a class="social-youtube" 
-           href="https://www.youtube.com/channel/UCljj-pkGW1Adn2ZOrib3RkA" 
-           target="_blank">
-          <i class="icon youtube"></i>
+        <a
+          className="social-youtube"
+          href="https://www.youtube.com/channel/UCljj-pkGW1Adn2ZOrib3RkA"
+          target="_blank"
+        >
+          <i className="icon youtube"></i>
         </a>
-        <a class="social-tiktok" 
-           href="https://www.tiktok.com/@eecimaryland" 
-           target="_blank">
-          <i class="icon tiktok"></i>
+        <a
+          className="social-tiktok"
+          href="https://www.tiktok.com/@eecimaryland"
+          target="_blank"
+        >
+          <i className="icon tiktok"></i>
         </a>
       </div>
       <div className="footer-links">
@@ -30,7 +36,8 @@ export function Footer() {
         <a className="page-link" href="/">
           Visit
         </a>
-        <a className="page-link" 
+        <a
+          className="page-link"
           href="https://giving.myamplify.io//app/giving/setota"
           target="_blank"
         >

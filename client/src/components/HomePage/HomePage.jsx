@@ -3,6 +3,7 @@ import { Sermon } from '../Sermon';
 import { About } from '../About';
 import { Beliefs } from '../Beliefs';
 import { Verse } from '../Verse';
+import { Services } from '../Services';
 
 export function HomePage() {
   return (
@@ -15,6 +16,7 @@ export function HomePage() {
       />
       <About />
       <Beliefs />
+      <Services />
       <Verse />
     </>
   );
