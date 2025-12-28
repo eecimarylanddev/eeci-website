@@ -1,9 +1,9 @@
 import eeciLogo from '../../assets/eeci-logo.PNG';
-import { useSiteSettingsContext } from '../../contexts';
+import { useSiteSettings } from '../../hooks';
 import './Navbar.css';
 
 export function Navbar() {
-  const { giveLink, loading } = useSiteSettingsContext();
+  const { data: siteSettings, isLoading, isError } = useSiteSettings();
 
   return (
     <header className="header">
@@ -19,13 +19,28 @@ export function Navbar() {
             <button className="nav-button">Visit</button>
           </li>
           <li>
-            <a
-              href={giveLink}
-              target="_blank"
-              style={{ opacity: loading ? 0.7 : 1 }}
-            >
-              <button className="nav-button">Give</button>
-            </a>
+            {isError ? (
+              <button
+                className="nav-button"
+                disabled
+                style={{ opacity: 0.5, cursor: 'not-allowed' }}
+              >
+                Give
+              </button>
+            ) : (
+              <a
+                href={siteSettings?.giveLink}
+                target="_blank"
+                style={{
+                  opacity: isLoading ? 0.5 : 1,
+                  pointerEvents: isLoading ? 'none' : 'auto',
+                }}
+              >
+                <button className="nav-button" disabled={isLoading}>
+                  {isLoading ? 'Loading...' : 'Give'}
+                </button>
+              </a>
+            )}
           </li>
         </ul>
       </nav>

@@ -1,13 +1,14 @@
-// Fetches site settings from Contentful. Falls back to defaults if it fails.
-import { useState, useEffect } from 'react';
+import { useQuery } from '@tanstack/react-query';
 import client from '../services/contentful';
 
 const DEFAULT_SETTINGS = {
-  giveLink: 'https://giving.myamplify.io/app/giving/setota',
+  giveLink:
+    'https://giving.myamplify.io/atestSermonVideoId = extractVideoId(settings.latestSermonUrl)app/giving/setota',
   latestSermonUrl: 'https://www.youtube.com/embed/bngvT0n4ur0',
   aboutText: `Emmanuel Evangelical Church International (EECI) is a vibrant, multi-generational church with a passion for Jesus, people, and our city. We are a community of believers dedicated to sharing the gospel and love of Christ. Our services are filled with heartfelt worship, practical teaching from the Bible, and a welcoming atmosphere for all. We believe in building strong families and a strong community, and we offer various ministries for all ages to get connected and grow in their faith. Come as you are and experience the warmth of our church family.`,
   beliefsText: `We are a Bible-believing church committed to the historic creeds of the Christian faith and the Gospel of Jesus Christ. Our mission is to inspire, equip, and create a space for living out our faith in community.`,
-  facebookUrl: 'https://www.facebook.com/people/Ethio-Emmanuel/pfbid07LJ4r13DdRn5MSNFCr7YjPLW95xyZD95ss5AR9s8WjUJX7hpk18rQFDV8CHMukhLl/',
+  facebookUrl:
+    'https://www.facebook.com/people/Ethio-Emmanuel/pfbid07LJ4r13DdRn5MSNFCr7YjPLW95xyZD95ss5AR9s8WjUJX7hpk18rQFDV8CHMukhLl/',
   youtubeUrl: 'https://www.youtube.com/channel/UCljj-pkGW1Adn2ZOrib3RkA',
   tiktokUrl: 'https://www.tiktok.com/@eecimaryland',
 };
@@ -36,59 +37,43 @@ function extractVideoId(url) {
   return null;
 }
 
+async function fetchSiteSettings() {
+  const response = await client.getEntries({
+    content_type: 'siteSettings',
+    limit: 1,
+  });
+
+  if (!response) {
+    throw new Error('Failed to fetch site settings: Response is undefined');
+  }
+
+  let settings;
+  if (response.items.length > 0) {
+    const fields = response.items[0].fields;
+    settings = {
+      giveLink: fields.giveLink,
+      latestSermonUrl: fields.latestSermonUrl,
+      latestSermonVideoId: extractVideoId(fields.latestSermonUrl),
+      aboutText: fields.aboutText,
+      beliefsText: fields.beliefsText,
+      facebookUrl: fields.facebookUrl,
+      youtubeUrl: fields.youtubeUrl,
+      tiktokUrl: fields.tiktokUrl,
+    };
+  } else {
+    console.warn('[Contentful] No siteSettings entries found!');
+    settings = {
+      ...DEFAULT_SETTINGS,
+      latestSermonVideoId: extractVideoId(DEFAULT_SETTINGS.latestSermonUrl),
+    };
+  }
+
+  return settings;
+}
+
 export function useSiteSettings() {
-  const [settings, setSettings] = useState(DEFAULT_SETTINGS);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    async function fetchSettings() {
-      try {
-        console.log('[Contentful] Fetching siteSettings...');
-        const response = await client.getEntries({
-          content_type: 'siteSettings',
-          limit: 1,
-        });
-
-        console.log('[Contentful] Raw response:', response);
-        console.log('[Contentful] Items count:', response.items.length);
-
-        if (response.items.length > 0) {
-          const fields = response.items[0].fields;
-          console.log('[Contentful] Fields received:', fields);
-          console.log('[Contentful] Field keys:', Object.keys(fields));
-
-          setSettings({
-            giveLink: fields.giveLink || DEFAULT_SETTINGS.giveLink,
-            latestSermonUrl: fields.latestSermonUrl || DEFAULT_SETTINGS.latestSermonUrl,
-            aboutText: fields.aboutText || DEFAULT_SETTINGS.aboutText,
-            beliefsText: fields.beliefsText || DEFAULT_SETTINGS.beliefsText,
-            facebookUrl: fields.facebookUrl || DEFAULT_SETTINGS.facebookUrl,
-            youtubeUrl: fields.youtubeUrl || DEFAULT_SETTINGS.youtubeUrl,
-            tiktokUrl: fields.tiktokUrl || DEFAULT_SETTINGS.tiktokUrl,
-          });
-        } else {
-          console.warn('[Contentful] No siteSettings entries found!');
-        }
-      } catch (err) {
-        console.error('[Contentful] Failed to fetch site settings:', err);
-        console.error('[Contentful] Error details:', err.message, err.details);
-        setError(err);
-        // Keep default settings on error
-      } finally {
-        setLoading(false);
-      }
-    }
-
-    fetchSettings();
-  }, []);
-
-  const latestSermonVideoId = extractVideoId(settings.latestSermonUrl);
-
-  return {
-    ...settings,
-    latestSermonVideoId: latestSermonVideoId || 'bngvT0n4ur0',
-    loading,
-    error,
-  };
+  return useQuery({
+    queryKey: ['siteSettings'],
+    queryFn: fetchSiteSettings,
+  });
 }

@@ -4,20 +4,26 @@ import { About } from '../About';
 import { Beliefs } from '../Beliefs';
 import { Verse } from '../Verse';
 import { Services } from '../Services';
-import { useSiteSettingsContext } from '../../contexts';
+import { useSiteSettings } from '../../hooks';
 
 export function HomePage() {
-  const { latestSermonVideoId, loading } = useSiteSettingsContext();
+  const { data: siteSettings, isLoading, isError } = useSiteSettings();
 
   return (
     <>
       <Intro />
-      <Sermon
-        subtitle="Latest message"
-        title="Watch our last sermon"
-        videoId={latestSermonVideoId}
-        loading={loading}
-      />
+      {isError ? (
+        <div style={{ padding: '2rem', textAlign: 'center', color: '#ff6b6b' }}>
+          <p>Unable to load latest sermon. Please try again later.</p>
+        </div>
+      ) : (
+        <Sermon
+          subtitle="Latest message"
+          title="Watch our last sermon"
+          videoId={siteSettings?.latestSermonVideoId}
+          loading={isLoading}
+        />
+      )}
       <About />
       <Beliefs />
       <Services />
