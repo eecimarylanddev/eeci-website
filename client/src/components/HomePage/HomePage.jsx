@@ -11,7 +11,12 @@ export function HomePage() {
 
   return (
     <>
-      <Intro />
+      <Intro
+        title="Emmanuel Evangelical Church International"
+        subtitle="You are so special and God LOVES you so much!"
+      >
+        <button className="intro-button">I'M NEW</button>
+      </Intro>
       {isError ? (
         <div style={{ padding: '2rem', textAlign: 'center', color: '#ff6b6b' }}>
           <p>Unable to load latest sermon. Please try again later.</p>
