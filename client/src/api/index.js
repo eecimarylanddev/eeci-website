@@ -21,6 +21,9 @@ export async function fetchSiteSettings() {
 
   const siteSettings = response.items[0].fields;
 
+  // Contentful media assets have nested structure: asset.fields.file.url
+  const backgroundImageUrl = siteSettings.backgroundImage?.fields?.file?.url;
+
   return {
     giveLink: siteSettings.giveLink,
     sermonsPlaylist: siteSettings.sermonsPlaylist,
@@ -29,5 +32,9 @@ export async function fetchSiteSettings() {
     facebookUrl: siteSettings.facebookUrl,
     youtubeUrl: siteSettings.youtubeUrl,
     tiktokUrl: siteSettings.tiktokUrl,
+    missionTagline: siteSettings.missionTagline,
+    valuesJson: siteSettings.valuesJson,
+    historyText: siteSettings.historyText,
+    backgroundImage: backgroundImageUrl ? `https:${backgroundImageUrl}` : null,
   };
 }
