@@ -1,7 +1,6 @@
 import { Box, Button, Flex, HStack, Image, Link } from '@chakra-ui/react';
 import eeciLogo from '../../assets/eeci-logo.PNG';
 import { useSiteSettings } from '../../hooks/useSiteSettings';
-import { FaDonate } from 'react-icons/fa';
 
 export function Navbar() {
   const { data: siteSettings, isLoading, isError } = useSiteSettings();
@@ -21,8 +20,8 @@ export function Navbar() {
           <Image alt="EECI" src={eeciLogo} h="60px" w="auto" />
         </Link>
         <HStack as="ul" listStyleType="none" gap="8">
-          <Link>About</Link>
-          <Link>Visit</Link>
+          <Link href="/about">About</Link>
+          <Link href="/visit">Visit</Link>
           <Button
             asChild
             fontWeight="500"
@@ -41,7 +40,7 @@ export function Navbar() {
                 }
               }}
             >
-              Give <FaDonate />
+              Give
             </Link>
           </Button>
         </HStack>

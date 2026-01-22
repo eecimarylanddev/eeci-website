@@ -15,12 +15,16 @@ export function HomePage() {
       <Intro
         title="Emmanuel Evangelical Church International"
         subtitle="You are so special and God LOVES you so much!"
+        backgroundImage={siteSettings?.backgroundImage}
       >
         <Button
           variant="outline"
-          borderColor="text.primary"
-          color="text.primary"
-          _hover={{ bg: 'text.primary', color: 'white' }}
+          borderColor={siteSettings?.backgroundImage ? 'white' : 'text.primary'}
+          color={siteSettings?.backgroundImage ? 'white' : 'text.primary'}
+          _hover={{
+            bg: siteSettings?.backgroundImage ? 'white' : 'text.primary',
+            color: siteSettings?.backgroundImage ? 'gray.800' : 'white',
+          }}
         >
           I'M NEW
         </Button>
