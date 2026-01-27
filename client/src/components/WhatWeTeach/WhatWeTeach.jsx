@@ -8,13 +8,13 @@ export function WhatWeTeach({ bg }) {
   return (
     <Section
       bg={bg}
-      size="lg"
       title="What We Teach"
+      introText={teachingsJson.teachingStatement}
       isLoading={isLoading}
       isError={isError}
       skeletonHeight="300px"
     >
-      <ContentCarousel items={teachingsJson} />
+      <ContentCarousel items={teachingsJson.teachingPoints} />
     </Section>
   );
 }

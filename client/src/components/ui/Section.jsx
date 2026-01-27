@@ -17,7 +17,7 @@ const containerSizes = {
 
 export function Section({
   bg,
-  size = 'sm',
+  size = 'md',
   paddingY = '16',
   paddingX = '6',
   textAlign = 'center',
@@ -25,6 +25,12 @@ export function Section({
   title,
   headingAs = 'h2',
   headingSize = '2rem',
+  // Intro text props
+  introText,
+  introFontSize = 'md',
+  subtitle,
+  subtitleFontSize = 'md',
+  subtitleFontWeight = '600',
   // Loading/error state props
   isLoading = false,
   isError = false,
@@ -53,6 +59,29 @@ export function Section({
           >
             {title}
           </Heading>
+        )}
+
+        {introText && (
+          <Text
+            fontSize={introFontSize}
+            color="text.secondary"
+            textAlign="center"
+            lineHeight="1.8"
+            marginBottom="6"
+          >
+            {introText}
+          </Text>
+        )}
+
+        {subtitle && (
+          <Text
+            fontSize={subtitleFontSize}
+            fontWeight={subtitleFontWeight}
+            color="text.primary"
+            marginBottom="4"
+          >
+            {subtitle}
+          </Text>
         )}
 
         {isError ? (

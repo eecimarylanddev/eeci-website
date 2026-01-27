@@ -8,17 +8,14 @@ export function Vision({ bg }) {
   return (
     <Section
       bg={bg}
-      size="lg"
       title="Our Vision"
+      introText={ourVisionJson?.visionStatement}
+      subtitle="We Seek"
       isLoading={isLoading}
       isError={isError}
       skeletonHeight="300px"
     >
-      <ContentCarousel
-        items={ourVisionJson?.visionPoints}
-        introText={ourVisionJson?.visionStatement}
-        carouselHeading="We seek:"
-      />
+      <ContentCarousel items={ourVisionJson?.visionPoints} />
     </Section>
   );
 }

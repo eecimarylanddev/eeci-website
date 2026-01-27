@@ -2,32 +2,13 @@ import { Box, VStack, Heading, Text } from '@chakra-ui/react';
 import { Carousel, IconButton } from '@chakra-ui/react';
 import { LuChevronLeft, LuChevronRight } from 'react-icons/lu';
 
-export function ContentCarousel({ items, introText, carouselHeading }) {
+export function ContentCarousel({ items }) {
   if (!items || items.length === 0) {
     return null;
   }
 
   return (
     <VStack gap="8" maxWidth="xl" marginX="auto">
-      {/* Intro Text (optional) */}
-      {introText && (
-        <Text
-          fontSize="lg"
-          color="text.secondary"
-          textAlign="center"
-          lineHeight="1.8"
-        >
-          {introText}
-        </Text>
-      )}
-
-      {/* Carousel Heading (optional) */}
-      {carouselHeading && (
-        <Text fontSize="md" fontWeight="600" color="text.primary">
-          {carouselHeading}
-        </Text>
-      )}
-
       {/* Carousel */}
       <Carousel.Root slideCount={items.length} maxWidth="2xl" width="100%">
         <Carousel.ItemGroup overflow="overlay">
