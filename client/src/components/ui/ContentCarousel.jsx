@@ -9,7 +9,6 @@ export function ContentCarousel({ items }) {
 
   return (
     <VStack gap="8" maxWidth="xl" marginX="auto">
-      {/* Carousel */}
       <Carousel.Root slideCount={items.length} maxWidth="2xl" width="100%">
         <Carousel.ItemGroup overflow="overlay">
           {items.map((item, index) => (
@@ -17,7 +16,6 @@ export function ContentCarousel({ items }) {
               <Box
                 alignContent="center"
                 borderWidth="1.5px"
-                borderColor="border.default"
                 borderRadius="lg"
                 overflow="hidden"
                 height="100%"

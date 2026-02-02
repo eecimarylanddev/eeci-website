@@ -38,6 +38,36 @@ export async function fetchSiteSettings() {
     ourVisionJson: siteSettings.ourVisionJson,
     ourValues: siteSettings.ourValues,
     teachingsJson: siteSettings.teachingsJson,
-    backgroundImage: backgroundImageUrl ? `https:${backgroundImageUrl}` : null,
+    backgroundImage: backgroundImageUrl,
   };
+}
+
+export async function fetchServiceCarousels() {
+  const response = await contentfulClient.getEntries({
+    content_type: 'serviceCarousel',
+    order: 'fields.order',
+  });
+
+  if (!response) {
+    throw new Error('Failed to fetch service carousels');
+  }
+
+  if (response.items.length === 0) {
+    console.warn('[Contentful] No serviceCarousel entries found');
+    return [];
+  }
+
+  return response.items.map((carousel) => ({
+    id: carousel.sys.id,
+    title: carousel.fields.title,
+    order: carousel.fields.order,
+    cards:
+      carousel.fields.cards?.map((card) => ({
+        id: card.sys.id,
+        title: card.fields.title,
+        subtitle: card.fields.subtitle,
+        description: card.fields.description,
+        backgroundImage: card.fields.backgroundImage?.fields?.file?.url,
+      })) ?? [],
+  }));
 }
