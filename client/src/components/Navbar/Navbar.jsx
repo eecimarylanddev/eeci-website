@@ -36,9 +36,9 @@ export function Navbar() {
             </Link>
           ))}
           <OutlineButton
+            color="white"
+            backgroundColor="gray.900"
             asChild
-            fontWeight="500"
-            rounded="full"
             disabled={isLoading || isError}
           >
             <Link
