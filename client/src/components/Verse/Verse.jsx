@@ -26,7 +26,7 @@ export function Verse({ bg }) {
               fontStyle="italic"
               color="gray.600"
               marginBottom="4"
-              dangerouslySetInnerHTML={{ __html: verse.text }}
+              dangerouslySetInnerHTML={{ __html: verse.content }}
             />
             <Link
               href={verse.permalink}

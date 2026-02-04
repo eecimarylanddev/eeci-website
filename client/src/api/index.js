@@ -92,6 +92,7 @@ export async function fetchVerseOfTheDay(version = 'NASB') {
 
   return {
     text: data.votd.text,
+    content: data.votd.content,
     reference: data.votd.reference,
     displayReference: data.votd.display_ref,
     permalink: data.votd.permalink,
