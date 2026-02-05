@@ -38,6 +38,7 @@ export async function fetchSiteSettings() {
     ourVisionJson: siteSettings.ourVisionJson,
     ourValues: siteSettings.ourValues,
     teachingsJson: siteSettings.teachingsJson,
+    teamMembersJson: siteSettings.teamMembersJson,
     backgroundImage: backgroundImageUrl,
   };
 }

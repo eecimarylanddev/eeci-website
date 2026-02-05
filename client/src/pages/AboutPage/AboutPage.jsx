@@ -4,6 +4,7 @@ import { Vision } from '../../components/Vision';
 import { CoreValues } from '../../components/CoreValues';
 import { WhatWeTeach } from '../../components/WhatWeTeach';
 import { WhatWeBelieve } from '../../components/WhatWeBelieve';
+import { MeetOurTeam } from '../../components/MeetOurTeam';
 
 export function AboutPage() {
   return (
@@ -15,6 +16,7 @@ export function AboutPage() {
       <Vision bg="bg.secondary" />
       <CoreValues bg="bg.primary" />
       <WhatWeTeach bg="bg.secondary" />
+      <MeetOurTeam bg="bg.primary" />
     </Box>
   );
 }
