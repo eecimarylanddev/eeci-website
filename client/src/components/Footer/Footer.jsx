@@ -1,5 +1,5 @@
 import { Box, HStack, Link, Text } from '@chakra-ui/react';
-import { FaFacebook, FaYoutube, FaTiktok } from 'react-icons/fa6';
+import { FaFacebook, FaYoutube, FaTiktok, FaInstagram } from 'react-icons/fa6';
 import { SocialIconButton } from '../ui';
 import { useSiteSettings } from '../../hooks/useSiteSettings';
 import { NAVIGATION_LINKS, CHURCH_INFO, ERROR_MESSAGES } from '../../constants';
@@ -10,8 +10,9 @@ export function Footer() {
   const { data: siteSettings, isLoading, isError } = useSiteSettings();
 
   const socialLinks = [
-    { href: siteSettings?.facebookUrl, icon: FaFacebook, label: 'Facebook' },
     { href: siteSettings?.youtubeUrl, icon: FaYoutube, label: 'YouTube' },
+    { href: siteSettings?.facebookUrl, icon: FaFacebook, label: 'Facebook' },
+    { href: siteSettings?.instagramUrl, icon: FaInstagram, label: 'Instagram' },
     { href: siteSettings?.tiktokUrl, icon: FaTiktok, label: 'TikTok' },
   ];
 

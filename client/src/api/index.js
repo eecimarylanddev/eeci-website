@@ -30,6 +30,7 @@ export async function fetchSiteSettings() {
     aboutText: siteSettings.aboutText,
     beliefsText: siteSettings.beliefsText,
     facebookUrl: siteSettings.facebookUrl,
+    instagramUrl: siteSettings.instagramUrl,
     youtubeUrl: siteSettings.youtubeUrl,
     tiktokUrl: siteSettings.tiktokUrl,
     missionTagline: siteSettings.missionTagline,
