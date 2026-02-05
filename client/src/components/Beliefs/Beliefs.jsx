@@ -18,7 +18,7 @@ export function Beliefs({ bg }) {
       <Text fontSize="md" color="text.secondary" marginBottom="8">
         {siteSettings?.beliefsText}
       </Text>
-      <OutlineButton onClick={() => navigate('/about')}>
+      <OutlineButton backgroundColor="white" onClick={() => navigate('/about')}>
         LEARN MORE
       </OutlineButton>
     </Section>
